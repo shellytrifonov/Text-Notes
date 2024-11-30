@@ -1,6 +1,7 @@
 # Text Notes Chrome Extension
 
 Text Notes is a simple and lightweight Chrome extension that allows users to create, manage, and organize text notes directly within the browser. This tool is perfect for anyone who needs a quick and accessible way to save their thoughts, ideas, or tasks while browsing.
+![image](https://github.com/user-attachments/assets/d53fcc70-40ee-4098-b2f8-02944b1c5f04)
 
 ---
 
