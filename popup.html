@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Notes</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <h1>Text Notes</h1>
+  <div class="filter-section">
+    <select id="sort-filter" class="sort-filter">
+      <option value="newest">Newest First</option>
+      <option value="oldest">Oldest First</option>
+    </select>
+  </div>
+  <table id="notes-table">
+    <thead>
+      <tr>
+        <th>NOTE TITLE</th>
+        <th>TIME</th>
+        <th>ACTIONS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Notes will be dynamically added here -->
+    </tbody>
+  </table>
+
+  <div class="add-note-section">
+    <h2>Add Note</h2>
+    <input type="text" id="note-title" placeholder="Enter note title..." />
+    <textarea id="note-content" rows="4" placeholder="Enter your note content..."></textarea>
+    <button id="save-note">Save Note</button>
+    <button id="cancel-note">Cancel</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

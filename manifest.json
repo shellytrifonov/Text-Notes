@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Text Notes",
+  "version": "1.0",
+  "description": "Save and manage your notes",
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_popup_width": 400,
+    "default_popup_height": 600
+  }
+}
