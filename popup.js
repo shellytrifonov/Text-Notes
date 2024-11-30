@@ -95,9 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
         deleteButton.innerHTML = '<i class="fas fa-trash"></i>';
         deleteButton.title = "Delete";
         deleteButton.addEventListener("click", () => {
-            chrome.runtime.sendMessage({ type: "deleteNote", index }, loadNotes);
+            chrome.runtime.sendMessage({ type: "deleteNote", time: note.time }, loadNotes);
         });
-        actionsContainer.appendChild(deleteButton);
+        actionsContainer.appendChild(deleteButton);        
 
         actionsCell.appendChild(actionsContainer);
         row.appendChild(actionsCell);

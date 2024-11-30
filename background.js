@@ -19,13 +19,14 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   
     if (message.type === 'deleteNote') {
       chrome.storage.local.get(['notes'], (result) => {
-        const notes = result.notes || [];
-        notes.splice(message.index, 1); // Remove the note at the specified index
-        chrome.storage.local.set({ notes });
-        sendResponse({ success: true });
+          const notes = result.notes || [];
+          const updatedNotes = notes.filter(note => note.time !== message.time); // Keep notes except the one to delete
+          chrome.storage.local.set({ notes: updatedNotes }, () => {
+              sendResponse({ success: true });
+          });
       });
-      return true; // Keep the message channel open for the async response
-    }
+      return true; // Keep the message channel open for async response
+  }  
   
     return true;
   });
