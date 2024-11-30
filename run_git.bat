@@ -1,28 +1,28 @@
-:: This script commits and pushes changes to the Text-Notes GitHub repository.
-:: To run: .\run_git.bat
+:: This script initializes the Git repository and sets the remote for Text-Notes.
+:: To run: .\set_git.bat
 @echo off
-setlocal
 
-:: Get the current date in 'dd-mm-yy' format
-for /f "tokens=1-3 delims=/" %%a in ("%date%") do (
-    set "day=%%a"
-    set "month=%%b"
-    set "year=%%c"
+:: Initialize the repository if it hasn't been initialized
+if not exist ".git" (
+    git init
 )
 
-:: Formatted date for the commit message
-set "formattedDate=%day%-%month%-%year:~-2%"
-
-:: Display the status of the repository
-git status
-
-:: Stage all changes
+:: Add all files to the repository
 git add .
 
-:: Commit the changes with the current date as the message
-git commit -m "%formattedDate%"
+:: Commit the changes
+git commit -m "Initial commit"
+
+:: Rename the branch to main
+git branch -M main
+
+:: Check if 'origin' remote exists
+git remote get-url origin 2>nul
+if errorlevel 1 (
+    git remote add origin https://github.com/shellytrifonov/Text-Notes.git
+) else (
+    git remote set-url origin https://github.com/shellytrifonov/Text-Notes.git
+)
 
 :: Push the changes to the remote repository
 git push -u origin main
-
-endlocal
